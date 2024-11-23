@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio [Nama Kamu]</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .hover-underline:hover {
+            text-decoration: underline;
+        }
+        /* Animasi hover pada proyek */
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover efek pada tombol */
+        button, a {
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover, a:hover {
+            background-color: #2563eb; /* Warna biru lebih gelap */
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Transisi halus untuk semua elemen */
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white shadow fixed top-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <h1 class="text-2xl font-bold">[Nama Kamu]</h1>
+            <nav>
+                <a href="#about" class="mx-4 text-gray-700 hover:text-blue-500 hover-underline">About Me</a>
+                <a href="#projects" class="mx-4 text-gray-700 hover:text-blue-500 hover-underline">Projects</a>
+                <a href="#skills" class="mx-4 text-gray-700 hover:text-blue-500 hover-underline">Skills</a>
+                <a href="#contact" class="mx-4 text-gray-700 hover:text-blue-500 hover-underline">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-blue-500 text-white text-center py-20 mt-16">
+        <h2 class="text-4xl font-bold">Hi, I'm [Nama Kamu]</h2>
+        <p class="mt-4 text-lg">A Game Developer Student with a passion for creativity and innovation.</p>
+        <a href="#contact" class="mt-6 inline-block px-6 py-3 bg-white text-blue-500 font-bold rounded-lg shadow hover:bg-gray-100">
+            Contact Me
+        </a>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 container mx-auto px-6">
+        <h3 class="text-3xl font-bold mb-6 text-center">About Me</h3>
+        <p class="text-lg text-gray-700 text-center leading-relaxed">
+            Saya adalah siswa SMK jurusan Game Developer yang bersemangat untuk menciptakan pengalaman bermain yang inovatif dan menyenangkan. 
+            Saya memiliki keahlian dalam pengembangan game 2D dan 3D menggunakan berbagai tools dan bahasa pemrograman.
+        </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-6 text-center">Projects</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Contoh Proyek -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img data-src="https://via.placeholder.com/300x200" alt="Project Screenshot" class="lazy-img">
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold">Nama Proyek</h4>
+                        <p class="text-gray-600 mt-2">Deskripsi singkat tentang proyek ini.</p>
+                        <a href="#" class="text-blue-500 mt-4 inline-block hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Tambahkan proyek lainnya -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-6">Skills</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <!-- Contoh skill -->
+                <span class="px-4 py-2 bg-blue-500 text-white rounded-full">Unity</span>
+                <span class="px-4 py-2 bg-blue-500 text-white rounded-full">C#</span>
+                <span class="px-4 py-2 bg-blue-500 text-white rounded-full">Blender</span>
+                <span class="px-4 py-2 bg-blue-500 text-white rounded-full">Photoshop</span>
+                <!-- Tambahkan skill lainnya -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-6">Contact</h3>
+            <p class="text-gray-700">Ingin bekerjasama atau sekadar bertanya? Hubungi saya di:</p>
+            <a href="mailto:emailmu@example.com" class="text-blue-500 mt-4 inline-block hover:underline">
+                emailmu@example.com
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-center py-4">
+        <p>© 2024 [Nama Kamu]. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    
+        // Lazy loading images
+        document.addEventListener("DOMContentLoaded", () => {
+            const lazyImages = document.querySelectorAll("img[data-src]");
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            lazyImages.forEach(img => observer.observe(img));
+        });
+    </script>
+    
+</body>
+</html>

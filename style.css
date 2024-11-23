@@ -1,0 +1,199 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #1e1e2f;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #333; /* Warna latar belakang navbar */
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: #00d1b2;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links .nav-item {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links .nav-item:hover {
+  background: #00d1b2;
+  color: white;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Navbar disembunyikan pada layar kecil */
+    flex-direction: column;
+    background: #333;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+.menu-toggle {
+  display: none; /* Hanya muncul pada layar kecil */
+}
+
+/* Ripple Effect */
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background: #0078d4;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.ripple-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.ripple-btn:hover::after {
+  width: 75px; /* Mengurangi ukuran ripple effect */
+  height: 75px; /* Mengurangi ukuran ripple effect */
+}
+
+/* Tooltip Styling */
+.social-btn[data-tooltip] {
+  position: relative;
+}
+
+.social-btn[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%; /* Tooltip muncul di atas elemen */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+
+.social-btn[data-tooltip]::after {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Social Media Animations */
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #2e2e40;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.5s ease;
+}
+
+.social-btn:hover i {
+  transform: rotate(360deg);
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+}
